@@ -115,6 +115,7 @@ namespace Ejercicio2
         }
 
 
+        // Función que devuelve el número del alumno dado su nombre
         public int buscarNumAlumno(string alumno)
         {
             int numAlumno = 77;
@@ -130,6 +131,7 @@ namespace Ejercicio2
         }
 
 
+        // Función que devuelve el número de la materia dado su nombre
         public int buscarNumMateria(string materia)
         {
             int numMateria = 77;
@@ -304,6 +306,7 @@ namespace Ejercicio2
         }
 
 
+        // Función que muestra toda la tabla de notas por consola
         public void verTabla()
         {
             for (int a = 0; a < 12; a++)

@@ -14,8 +14,6 @@ namespace Ejercicio2
             Aula aula = new Aula();
             aula.rellenarTabla();
 
-            //rellenarTabla(tablaNotas);
-
             bool repetir = true;
             while (repetir)
             {
