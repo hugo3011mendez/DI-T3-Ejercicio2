@@ -149,20 +149,19 @@ namespace Ejercicio2
 
 
         // Función que calcula la media de todas las notas de un alumno
-        public void calcularMediaAlumno(string alumno)
+        public void calcularMediaAlumno(int numAlumno)
         {
             try
             {
-                int numAlumno = buscarNumAlumno(alumno);
                 double suma = 0;
 
                 for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
                 {
-                    suma += this.tablaNotas[i, numAlumno];
+                    suma += this.tablaNotas[i, numAlumno-1];
                 }
 
                 double media = suma / this.tablaNotas.GetLength(0);
-                Console.WriteLine("La media de las notas de {0} es : {1}", alumno, media);
+                Console.WriteLine("La media de las notas de {0} es : {1}", alumnos[numAlumno-1], media);
             }
             catch (Exception e)
             {
@@ -173,20 +172,19 @@ namespace Ejercicio2
 
 
         // Función que calcula la media de todas las notas de una asignatura
-        public void calcularMediaAsignatura(string asignatura)
+        public void calcularMediaAsignatura(int numMateria)
         {
             try
             {
-                int numMateria = buscarNumMateria(asignatura);
                 double suma = 0;
 
                 for (int i = 0; i < this.tablaNotas.GetLength(1); i++)
                 {
-                    suma += this.tablaNotas[numMateria, i];
+                    suma += this.tablaNotas[numMateria-1, i];
                 }
 
                 double media = suma / this.tablaNotas.GetLength(1);
-                Console.WriteLine("La media de las notas de {0} es : {1}", asignatura, media);
+                Console.WriteLine("La media de las notas de {0} es : {1}", (asignaturas)numMateria-1, media);
             }
             catch (Exception e)
             {
@@ -197,16 +195,14 @@ namespace Ejercicio2
 
 
         // Función para ver todas las notas de un alumno
-        public void verNotasAlumno(string alumno)
+        public void verNotasAlumno(int numAlumno)
         {
             try
             {
-                int numAlumno = buscarNumAlumno(alumno);
-
-                Console.WriteLine("Las notas de {0} son : ", alumno);
+                Console.WriteLine("Las notas de {0} son : ", alumnos[numAlumno-1]);
                 for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
                 {
-                    Console.Write("{0}\t", this.tablaNotas[i, numAlumno]);
+                    Console.Write("{0}\t", this.tablaNotas[i, numAlumno-1]);
                 }
                 Console.Write("\n");
             }
@@ -219,28 +215,25 @@ namespace Ejercicio2
 
 
         // Función para visualizar las notas de una asignatura
-        public void verNotasAsignatura(string asignatura)
+        public void verNotasAsignatura(int numMateria)
         {
-            int numMateria = buscarNumMateria(asignatura);
-
-            Console.WriteLine("Las notas de {0} son : ", asignatura);
+            Console.WriteLine("Las notas de {0} son : ", (asignaturas)numMateria-1);
             for (int i = 0; i < this.tablaNotas.GetLength(1); i++)
             {
-                Console.Write("{0}\t", this.tablaNotas[numMateria, i]);
+                Console.Write("{0}\t", this.tablaNotas[numMateria-1, i]);
             }
             Console.Write("\n");
         }
 
 
         // Función que muestra la nota mínima y la nota máxima de un alumno
-        public void notaMaxMinAlumno(string alumno)
+        public void notaMaxMinAlumno(int numAlumno)
         {
-            int numAlumno = buscarNumAlumno(alumno);
             int[] notasAlumno = new int[4];
 
             for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
             {
-                notasAlumno[i] = this.tablaNotas[i, numAlumno];
+                notasAlumno[i] = this.tablaNotas[i, numAlumno-1];
             }
 
             int menor = 10;
@@ -259,33 +252,35 @@ namespace Ejercicio2
                 }
             }
 
-            Console.WriteLine("La nota más baja de {0} es : {1}", alumno, menor);
-            Console.WriteLine("La nota más alta de {0} es : {1}", alumno, mayor);
+            Console.WriteLine("La nota más baja de {0} es : {1}", alumnos[numAlumno-1], menor);
+            Console.WriteLine("La nota más alta de {0} es : {1}", alumnos[numAlumno-1], mayor);
         }
 
 
         // Función para visualizar la tabla de los alumnos aprobados
         public void tablaAprobados()
         {
+            // Creo una colección con los nº de los alumnos que han aprobado
             List<int> aprobados = new List<int>();
 
+            // Obtengo la info de los alumnos que han aprobado al menos una nota
             for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
             {
                 for (int j = 0; j < this.tablaNotas.GetLength(1); j++)
                 {
                     if (this.tablaNotas[i, j] >= 5)
                     {
-                        aprobados.Add(this.tablaNotas[i, j]);
+                        aprobados.Add(j);
                     }
                 }
             }
 
+            // Muestro todas las notas de los alumnos que han aprobado al menos una
             Console.WriteLine("Notas aprobadas : ");
-            for (int i = 0; i < aprobados.Count; i++)
+            for (int k = 0; k < aprobados.Count; k++)
             {
-                Console.Write("{0}\t", aprobados[i]);
+                verNotasAlumno(aprobados[k]);
             }
-            Console.Write("\n");
         }
 
 
