@@ -38,6 +38,7 @@ namespace Ejercicio2
                 {
                     case 1:
                         aula.calcularMediaTotal();
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa Enter para continuar");
                         Console.ReadLine();
                         break;
@@ -46,6 +47,7 @@ namespace Ejercicio2
                         Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la media : ");
                         alumno = Convert.ToInt32(Console.ReadLine());
                         aula.calcularMediaAlumno(alumno);
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa Enter para continuar");
                         Console.ReadLine();
                         break;
@@ -54,6 +56,7 @@ namespace Ejercicio2
                         Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver la media : ");
                         materia = Convert.ToInt32(Console.ReadLine());
                         aula.calcularMediaAsignatura(materia);
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa Enter para continuar");
                         Console.ReadLine();
                         break;
@@ -62,6 +65,7 @@ namespace Ejercicio2
                         Console.WriteLine("Introduce el índice del alumno sobre el que quieres sus notas : ");
                         alumno = Convert.ToInt32(Console.ReadLine());
                         aula.verNotasAlumno(alumno);
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa enter para continuar");
                         Console.ReadLine();
                         break;
@@ -70,6 +74,7 @@ namespace Ejercicio2
                         Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver sus notas : ");
                         materia = Convert.ToInt32(Console.ReadLine());
                         aula.verNotasAsignatura(materia);
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa enter para continuar");
                         Console.ReadLine();
                         break;
@@ -78,12 +83,14 @@ namespace Ejercicio2
                         Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la nota más baja y la más alta : ");
                         alumno = Convert.ToInt32(Console.ReadLine());
                         aula.notaMaxMinAlumno(alumno);
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa Enter para continuar");
                         Console.ReadLine();
                         break;
 
                     case 7:
                         aula.tablaAprobados();
+                        Console.WriteLine();
                         Console.WriteLine("Pulsa Enter para continuar");
                         Console.ReadLine();
                         break;

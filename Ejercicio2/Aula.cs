@@ -109,7 +109,7 @@ namespace Ejercicio2
             }
 
             double media = suma / (this.tablaNotas.GetLength(0) * this.tablaNotas.GetLength(1));
-            Console.WriteLine("La media de todas las notas es : {0}", media);
+            Console.WriteLine("La media de todas las notas es : {0:N2}", media);
         }
 
 
@@ -161,7 +161,7 @@ namespace Ejercicio2
                 }
 
                 double media = suma / this.tablaNotas.GetLength(0);
-                Console.WriteLine("La media de las notas de {0} es : {1}", alumnos[numAlumno-1], media);
+                Console.WriteLine("La media de las notas de {0} es : {1:N2}", alumnos[numAlumno-1], media);
             }
             catch (Exception e)
             {
@@ -184,7 +184,7 @@ namespace Ejercicio2
                 }
 
                 double media = suma / this.tablaNotas.GetLength(1);
-                Console.WriteLine("La media de las notas de {0} es : {1}", (asignaturas)numMateria-1, media);
+                Console.WriteLine("La media de las notas de {0} es : {1:N2}", (asignaturas)numMateria-1, media);
             }
             catch (Exception e)
             {
@@ -220,9 +220,9 @@ namespace Ejercicio2
             Console.WriteLine("Las notas de {0} son : ", (asignaturas)numMateria-1);
             for (int i = 0; i < this.tablaNotas.GetLength(1); i++)
             {
-                Console.Write("{0}\t", this.tablaNotas[numMateria-1, i]);
+                Console.Write("{0} :\t", alumnos[i]);
+                Console.Write("{0}\n", this.tablaNotas[numMateria-1, i]);
             }
-            Console.Write("\n");
         }
 
 
@@ -270,7 +270,11 @@ namespace Ejercicio2
                 {
                     if (this.tablaNotas[i, j] >= 5)
                     {
-                        aprobados.Add(j);
+                        // Si la lista de aprobados ya tiene el mismo nº de alumno, no se guardará otra vez
+                        if (!aprobados.Contains(j))
+                        {
+                            aprobados.Add(j);
+                        }
                     }
                 }
             }
