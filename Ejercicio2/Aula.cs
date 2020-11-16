@@ -114,6 +114,7 @@ namespace Ejercicio2
 
 
         // Función que devuelve el número del alumno dado su nombre
+        // Actualmente no tiene ningún uso aunque la guardo aquí por si la necesito
         public int buscarNumAlumno(string alumno)
         {
             int numAlumno = 77;
@@ -130,6 +131,7 @@ namespace Ejercicio2
 
 
         // Función que devuelve el número de la materia dado su nombre
+        // Actualmente no tiene ningún uso aunque la guardo aquí por si la necesito
         public int buscarNumMateria(string materia)
         {
             int numMateria = 77;
@@ -151,66 +153,42 @@ namespace Ejercicio2
         // Función que calcula la media de todas las notas de un alumno
         public void calcularMediaAlumno(int numAlumno)
         {
-            try
-            {
-                double suma = 0;
+            double suma = 0;
 
-                for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
-                {
-                    suma += this.tablaNotas[i, numAlumno-1];
-                }
-
-                double media = suma / this.tablaNotas.GetLength(0);
-                Console.WriteLine("La media de las notas de {0} es : {1:N2}", alumnos[numAlumno-1], media);
-            }
-            catch (Exception e)
+            for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
             {
-                Console.WriteLine("Excepcion generada : {0}", e.Message);
-                Console.WriteLine("No existe ese alumno");
+                suma += this.tablaNotas[i, numAlumno-1];
             }
+
+            double media = suma / this.tablaNotas.GetLength(0);
+            Console.WriteLine("La media de las notas de {0} es : {1:N2}", alumnos[numAlumno-1], media);
         }
 
 
         // Función que calcula la media de todas las notas de una asignatura
         public void calcularMediaAsignatura(int numMateria)
         {
-            try
-            {
-                double suma = 0;
+            double suma = 0;
 
-                for (int i = 0; i < this.tablaNotas.GetLength(1); i++)
-                {
-                    suma += this.tablaNotas[numMateria-1, i];
-                }
-
-                double media = suma / this.tablaNotas.GetLength(1);
-                Console.WriteLine("La media de las notas de {0} es : {1:N2}", (asignaturas)numMateria-1, media);
-            }
-            catch (Exception e)
+            for (int i = 0; i < this.tablaNotas.GetLength(1); i++)
             {
-                Console.WriteLine("Excepcion generada : {0}", e.Message);
-                Console.WriteLine("No existe esa asignatura");
+            suma += this.tablaNotas[numMateria-1, i];
             }
+
+            double media = suma / this.tablaNotas.GetLength(1);
+            Console.WriteLine("La media de las notas de {0} es : {1:N2}", (asignaturas)numMateria-1, media);
         }
 
 
         // Función para ver todas las notas de un alumno
         public void verNotasAlumno(int numAlumno)
         {
-            try
+            Console.WriteLine("Las notas de {0} son : ", alumnos[numAlumno-1]);
+            for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
             {
-                Console.WriteLine("Las notas de {0} son : ", alumnos[numAlumno-1]);
-                for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
-                {
-                    Console.Write("{0}\t", this.tablaNotas[i, numAlumno-1]);
-                }
-                Console.Write("\n");
+                Console.Write("{0}\t", this.tablaNotas[i, numAlumno-1]);
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("Excepcion generada : {0}", e.Message);
-                Console.WriteLine("No existe esa asignatura");
-            }
+            Console.Write("\n");
         }
 
 

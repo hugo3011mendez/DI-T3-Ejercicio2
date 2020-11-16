@@ -30,86 +30,94 @@ namespace Ejercicio2
                 Console.WriteLine("9 - Salir");
                 Console.WriteLine();
                 Console.WriteLine("Qué quieres hacer?");
-                int opcion = Convert.ToInt32(Console.ReadLine());
-
-                int alumno, materia;
-
-                switch (opcion)
+                try
                 {
-                    case 1:
-                        aula.calcularMediaTotal();
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa Enter para continuar");
-                        Console.ReadLine();
-                        break;
+                    int opcion = Convert.ToInt32(Console.ReadLine());
 
-                    case 2:
-                        Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la media : ");
-                        alumno = Convert.ToInt32(Console.ReadLine());
-                        aula.calcularMediaAlumno(alumno);
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa Enter para continuar");
-                        Console.ReadLine();
-                        break;
+                    int alumno, materia;
 
-                    case 3:
-                        Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver la media : ");
-                        materia = Convert.ToInt32(Console.ReadLine());
-                        aula.calcularMediaAsignatura(materia);
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa Enter para continuar");
-                        Console.ReadLine();
-                        break;
+                    switch (opcion)
+                    {
+                        case 1:
+                            aula.calcularMediaTotal();
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa Enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    case 4:
-                        Console.WriteLine("Introduce el índice del alumno sobre el que quieres sus notas : ");
-                        alumno = Convert.ToInt32(Console.ReadLine());
-                        aula.verNotasAlumno(alumno);
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa enter para continuar");
-                        Console.ReadLine();
-                        break;
+                        case 2:
+                            Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la media : ");
+                            alumno = Convert.ToInt32(Console.ReadLine());
+                            aula.calcularMediaAlumno(alumno);
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa Enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    case 5:
-                        Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver sus notas : ");
-                        materia = Convert.ToInt32(Console.ReadLine());
-                        aula.verNotasAsignatura(materia);
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa enter para continuar");
-                        Console.ReadLine();
-                        break;
+                        case 3:
+                            Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver la media : ");
+                            materia = Convert.ToInt32(Console.ReadLine());
+                            aula.calcularMediaAsignatura(materia);
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa Enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    case 6:
-                        Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la nota más baja y la más alta : ");
-                        alumno = Convert.ToInt32(Console.ReadLine());
-                        aula.notaMaxMinAlumno(alumno);
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa Enter para continuar");
-                        Console.ReadLine();
-                        break;
+                        case 4:
+                            Console.WriteLine("Introduce el índice del alumno sobre el que quieres sus notas : ");
+                            alumno = Convert.ToInt32(Console.ReadLine());
+                            aula.verNotasAlumno(alumno);
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    case 7:
-                        aula.tablaAprobados();
-                        Console.WriteLine();
-                        Console.WriteLine("Pulsa Enter para continuar");
-                        Console.ReadLine();
-                        break;
+                        case 5:
+                            Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver sus notas : ");
+                            materia = Convert.ToInt32(Console.ReadLine());
+                            aula.verNotasAsignatura(materia);
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    case 8:
-                        aula.verTabla();
-                        break;
+                        case 6:
+                            Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la nota más baja y la más alta : ");
+                            alumno = Convert.ToInt32(Console.ReadLine());
+                            aula.notaMaxMinAlumno(alumno);
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa Enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    case 9:
-                        repetir = false;
-                        Console.WriteLine("Hasta luego!");
-                        break;
+                        case 7:
+                            aula.tablaAprobados();
+                            Console.WriteLine();
+                            Console.WriteLine("Pulsa Enter para continuar");
+                            Console.ReadLine();
+                            break;
 
-                    default:
-                        Console.WriteLine("No existe esa opción, repite");
-                        break;
+                        case 8:
+                            aula.verTabla();
+                            break;
+
+                        case 9:
+                            repetir = false;
+                            Console.WriteLine("Hasta luego!");
+                            break;
+
+                        default:
+                            Console.WriteLine("No existe esa opción, repite");
+                            break;
+                    }
                 }
-
-
+                catch (Exception e)
+                {
+                    if (e is OverflowException || e is FormatException || e is NullReferenceException || e is IndexOutOfRangeException)
+                    {
+                        Console.WriteLine("Ha ocurrido un error en escribir el dato, asegúrate de que lo escribes bien");
+                    }
+                }
             }
 
         }
