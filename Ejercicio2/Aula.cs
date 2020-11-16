@@ -110,8 +110,6 @@ namespace Ejercicio2
 
             double media = suma / (this.tablaNotas.GetLength(0) * this.tablaNotas.GetLength(1));
             Console.WriteLine("La media de todas las notas es : {0}", media);
-            Console.WriteLine("Pulsa Enter para continuar");
-            Console.ReadLine();
         }
 
 
@@ -165,15 +163,12 @@ namespace Ejercicio2
 
                 double media = suma / this.tablaNotas.GetLength(0);
                 Console.WriteLine("La media de las notas de {0} es : {1}", alumno, media);
-                Console.WriteLine("Pulsa Enter para continuar");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Excepcion generada : {0}", e.Message);
                 Console.WriteLine("No existe ese alumno");
-                Console.WriteLine("Pulsa Enter para continuar");
             }
-            Console.ReadLine();
         }
 
 
@@ -192,15 +187,12 @@ namespace Ejercicio2
 
                 double media = suma / this.tablaNotas.GetLength(1);
                 Console.WriteLine("La media de las notas de {0} es : {1}", asignatura, media);
-                Console.WriteLine("Pulsa Enter para continuar");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Excepcion generada : {0}", e.Message);
                 Console.WriteLine("No existe esa asignatura");
-                Console.WriteLine("Pulsa Enter para continuar");
             }
-            Console.ReadLine();
         }
 
 
@@ -217,15 +209,12 @@ namespace Ejercicio2
                     Console.Write("{0}\t", this.tablaNotas[i, numAlumno]);
                 }
                 Console.Write("\n");
-                Console.WriteLine("Pulsa enter para continuar");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Excepcion generada : {0}", e.Message);
                 Console.WriteLine("No existe esa asignatura");
-                Console.WriteLine("Pulsa Enter para continuar");
             }
-            Console.ReadLine();
         }
 
 
@@ -240,8 +229,6 @@ namespace Ejercicio2
                 Console.Write("{0}\t", this.tablaNotas[numMateria, i]);
             }
             Console.Write("\n");
-            Console.WriteLine("Pulsa enter para continuar");
-            Console.ReadLine();
         }
 
 
@@ -274,8 +261,6 @@ namespace Ejercicio2
 
             Console.WriteLine("La nota más baja de {0} es : {1}", alumno, menor);
             Console.WriteLine("La nota más alta de {0} es : {1}", alumno, mayor);
-            Console.WriteLine("Pulsa Enter para continuar");
-            Console.ReadLine();
         }
 
 
@@ -301,8 +286,6 @@ namespace Ejercicio2
                 Console.Write("{0}\t", aprobados[i]);
             }
             Console.Write("\n");
-            Console.WriteLine("Pulsa Enter para continuar");
-            Console.ReadLine();
         }
 
 
