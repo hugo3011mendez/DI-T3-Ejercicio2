@@ -39,7 +39,7 @@ namespace Ejercicio2
                     switch (opcion)
                     {
                         case 1:
-                            aula.calcularMediaTotal();
+                            Console.WriteLine("La media de todas las notas es : {0:N2}", aula.calcularMediaTotal());
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
@@ -48,7 +48,7 @@ namespace Ejercicio2
                         case 2:
                             Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la media : ");
                             alumno = Convert.ToInt32(Console.ReadLine());
-                            aula.calcularMediaAlumno(alumno);
+                            Console.WriteLine("La media de las notas de {0} es : {1:N2}", aula.alumnos[alumno-1], aula.calcularMediaAlumno(alumno));
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
@@ -57,7 +57,7 @@ namespace Ejercicio2
                         case 3:
                             Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver la media : ");
                             materia = Convert.ToInt32(Console.ReadLine());
-                            aula.calcularMediaAsignatura(materia);
+                            Console.WriteLine("La media de las notas es : {0:N2}", aula.calcularMediaAsignatura(materia));
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
@@ -66,7 +66,14 @@ namespace Ejercicio2
                         case 4:
                             Console.WriteLine("Introduce el índice del alumno sobre el que quieres sus notas : ");
                             alumno = Convert.ToInt32(Console.ReadLine());
-                            aula.verNotasAlumno(alumno);
+                            int[] notasAlumno = aula.verNotasAlumno(alumno);
+
+                            Console.WriteLine("Las notas de {0} son : ", aula.alumnos[alumno - 1]);
+                            for (int i = 0; i < notasAlumno.Length; i++)
+                            {
+                                Console.Write("{0}\t", notasAlumno[i]);
+                            }
+                            Console.Write("\n");
                             Console.WriteLine();
                             Console.WriteLine("Pulsa enter para continuar");
                             Console.ReadLine();
@@ -75,7 +82,14 @@ namespace Ejercicio2
                         case 5:
                             Console.WriteLine("Introduce el índice de la materia sobre la que quieres ver sus notas : ");
                             materia = Convert.ToInt32(Console.ReadLine());
-                            aula.verNotasAsignatura(materia);
+                            int[] notasMateria = aula.verNotasAsignatura(materia);
+
+                            Console.WriteLine("Las notas son : ");
+                            for (int i = 0; i < notasMateria.Length; i++)
+                            {
+                                Console.Write("{0} :\t", aula.alumnos[i]);
+                                Console.Write("{0}\n", notasMateria[i]);
+                            }
                             Console.WriteLine();
                             Console.WriteLine("Pulsa enter para continuar");
                             Console.ReadLine();
@@ -84,14 +98,29 @@ namespace Ejercicio2
                         case 6:
                             Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la nota más baja y la más alta : ");
                             alumno = Convert.ToInt32(Console.ReadLine());
-                            aula.notaMaxMinAlumno(alumno);
+                            int[] notaMinMax = aula.notaMaxMinAlumno(alumno);
+                            Console.WriteLine("La nota más baja de {0} es : {1}", aula.alumnos[alumno - 1], notaMinMax[0]);
+                            Console.WriteLine("La nota más alta de {0} es : {1}", aula.alumnos[alumno - 1], notaMinMax[1]);
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
                             break;
 
                         case 7:
-                            aula.tablaAprobados();
+                            List<int> aprobados = aula.tablaAprobados();
+                            // Muestro todas las notas de los alumnos que han aprobado al menos una
+                            Console.WriteLine("Notas aprobadas : ");
+                            for (int k = 0; k < aprobados.Count; k++)
+                            {
+                                notasAlumno = aula.verNotasAlumno(aprobados[k]+1);
+
+                                Console.WriteLine("Las notas de {0} son : ", aula.alumnos[aprobados[k]]);
+                                for (int i = 0; i < notasAlumno.Length; i++)
+                                {
+                                    Console.Write("{0}\t", notasAlumno[i]);
+                                }
+                                Console.Write("\n");
+                            }
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
@@ -99,6 +128,38 @@ namespace Ejercicio2
 
                         case 8:
                             aula.verTabla();
+
+                            //for (int a = 0; a < 12; a++)
+                            //{
+                            //    if (a == 0)
+                            //    {
+                            //        Console.Write("\t\t");
+                            //    }
+
+                            //    Console.Write(aula.alumnos[a] + "\t");
+                            //}
+                            //Console.WriteLine();
+
+                            //Aula.asignaturas asig;
+                            //for (int i = 0; i < aula.tablaNotas.GetLength(0); i++)
+                            //{
+                            //    asig = (Aula.asignaturas)i;
+                            //    if (i == 1 || i == 3)
+                            //    {
+                            //        Console.Write("{0}\t\t", asig);
+                            //    }
+                            //    else
+                            //    {
+                            //        Console.Write("{0}\t", asig);
+                            //    }
+
+                            //    for (int j = 0; j < aula.tablaNotas.GetLength(1); j++)
+                            //    {
+                            //        Console.Write("{0}\t", aula.tablaNotas[i, j]);
+                            //    }
+                            //    Console.Write("\n");
+                            //}
+
                             break;
 
                         case 9:
