@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Configuration;
+using System.IO;
 
 namespace Ejercicio2
 {
@@ -265,10 +268,10 @@ namespace Ejercicio2
 
 
         // Función para visualizar la tabla de los alumnos aprobados
-        public List<int> tablaAprobados()
+        public Hashtable tablaAprobados()
         {
-            // Creo una colección con los nº de los alumnos que han aprobado
-            List<int> aprobados = new List<int>();
+            // Creo una hashtable con los nombres y las notas aprobadas de los alumnos
+            Hashtable aprobados = new Hashtable();
 
             // Obtengo la info de los alumnos que han aprobado al menos una nota
             for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
@@ -280,7 +283,7 @@ namespace Ejercicio2
                         // Si la lista de aprobados ya tiene el mismo nº de alumno, no se guardará otra vez
                         if (!aprobados.Contains(j))
                         {
-                            aprobados.Add(j);
+                            aprobados.Add(this[j], this[i,j]);
                         }
                     }
                 }

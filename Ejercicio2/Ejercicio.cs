@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -107,23 +108,37 @@ namespace Ejercicio2
                             break;
 
                         case 7:
-                            List<int> aprobados = aula.tablaAprobados();
-                            // Muestro todas las notas de los alumnos que han aprobado al menos una
-                            Console.WriteLine("Notas aprobadas : ");
-                            for (int k = 0; k < aprobados.Count; k++)
-                            {
-                                notasAlumno = aula.verNotasAlumno(aprobados[k]+1);
+                            Hashtable aprobados = aula.tablaAprobados();
+                            List<String> nombres = new List<string>();
 
-                                Console.WriteLine("Las notas de {0} son : ", aula[aprobados[k]]);
-                                for (int i = 0; i < notasAlumno.Length; i++)
+                            foreach (DictionaryEntry de in aprobados)
+                            {
+                                nombres.Add(de.Key.ToString()); // Guardo los nombres de los alumnos en una colección
+                            }
+                            
+                            // Escribo la tabla :
+                            for (int a = 0; a < nombres.Count; a++)
+                            {
+                                if (a == 0)
                                 {
-                                    Console.Write("{0}\t", notasAlumno[i]);
+                                    Console.Write("\t\t");
                                 }
-                                Console.Write("\n");
+
+                                Console.Write(nombres[a] + "\t");
+                                foreach (DictionaryEntry de in aprobados)
+                                {
+                                    if (de.Key.ToString() == nombres[a])
+                                    {
+                                        Console.Write(de.Value + "\t");
+                                    }
+                                }
+
+                                Console.WriteLine();
                             }
                             Console.WriteLine();
-                            Console.WriteLine("Pulsa Enter para continuar");
-                            Console.ReadLine();
+
+
+
                             break;
 
                         case 8:
