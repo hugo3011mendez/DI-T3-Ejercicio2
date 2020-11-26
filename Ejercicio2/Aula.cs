@@ -12,6 +12,19 @@ namespace Ejercicio2
 
         private int[,] tablaNotas = new int[4, 12];
 
+        // Función para que me devuelva la longitud de la dimesión especificada de tablaNotas
+        public int longitudDimensiónTabla(int i)
+        {
+            if (i == 0 || i == 1)
+            {
+                return tablaNotas.GetLength(i);
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
         public int this[int i, int j] 
         {
             set
@@ -122,7 +135,7 @@ namespace Ejercicio2
                 }
             }
 
-            double media = suma / (this.tablaNotas.GetLength(0) * this.tablaNotas.GetLength(1));
+            double media = suma / (this.tablaNotas.Length);
             return media;
         }
 
@@ -274,43 +287,6 @@ namespace Ejercicio2
             }
 
             return aprobados;
-        }
-
-
-        // Función que muestra toda la tabla de notas por consola
-        public void verTabla()
-        {
-            for (int a = 0; a < 12; a++)
-            {
-                if (a == 0)
-                {
-                    Console.Write("\t\t");
-                }
-
-                Console.Write(alumnos[a] + "\t");
-            }
-            Console.WriteLine();
-
-            asignaturas asig;
-
-            for (int i = 0; i < this.tablaNotas.GetLength(0); i++)
-            {
-                asig = (asignaturas)i;
-                if (i == 1 || i == 3)
-                {
-                    Console.Write("{0}\t\t", asig);
-                }
-                else
-                {
-                    Console.Write("{0}\t", asig);
-                }
-
-                for (int j = 0; j < this.tablaNotas.GetLength(1); j++)
-                {
-                    Console.Write("{0}\t", tablaNotas[i, j]);
-                }
-                Console.Write("\n");
-            }
         }
     }
 }

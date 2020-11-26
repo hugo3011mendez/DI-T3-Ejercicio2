@@ -127,7 +127,6 @@ namespace Ejercicio2
                             break;
 
                         case 8:
-                            //aula.verTabla();
 
                             for (int a = 0; a < 12; a++)
                             {
@@ -141,7 +140,7 @@ namespace Ejercicio2
                             Console.WriteLine();
 
                             Aula.asignaturas asig;
-                            for (int i = 0; i < aula.tablaNotas.GetLength(0); i++)
+                            for (int i = 0; i < aula.longitudDimensiónTabla(0); i++)
                             {
                                 asig = (Aula.asignaturas)i;
                                 if (i == 1 || i == 3)
@@ -153,9 +152,9 @@ namespace Ejercicio2
                                     Console.Write("{0}\t", asig);
                                 }
 
-                                for (int j = 0; j < aula.tablaNotas.GetLength(1); j++)
+                                for (int j = 0; j < aula.longitudDimensiónTabla(1); j++)
                                 {
-                                    Console.Write("{0}\t", aula.tablaNotas[i, j]);
+                                    Console.Write("{0}\t", aula[i, j]);
                                 }
                                 Console.Write("\n");
                             }
