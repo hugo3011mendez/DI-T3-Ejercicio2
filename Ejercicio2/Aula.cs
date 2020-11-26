@@ -8,7 +8,21 @@ using System.Threading.Tasks;
 namespace Ejercicio2
 {
     class Aula
-    {
+    {   
+        private int[] v = new int[100];
+
+        public int this[int indice]
+        {
+            set
+            {
+                v[indice] = value;
+            }
+            get
+            {
+                return v[indice];
+            }
+        }
+
         private int[,] tablaNotas = new int[4, 12];
 
         public int this[int i, int j] 
@@ -25,17 +39,17 @@ namespace Ejercicio2
 
 
         public string[] alumnos = { "Hugo", "Iris", "Fer", "Raul", "Marta", "Sara", "Iago", "Curro", "Javi", "Mila", "Juan", "Patricia"};
-        public string this[int i]
-        {
-            set
-            {
-                alumnos[i] = value;
-            }
-            get
-            {
-                return alumnos[i];
-            }
-        }
+        //public string this[int i]
+        //{
+        //    set
+        //    {
+        //        alumnos[i] = value;
+        //    }
+        //    get
+        //    {
+        //        return alumnos[i];
+        //    }
+        //}
 
 
         public enum asignaturas
