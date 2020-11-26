@@ -99,7 +99,7 @@ namespace Ejercicio2
                         case 6:
                             Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la nota más baja y la más alta : ");
                             alumno = Convert.ToInt32(Console.ReadLine());
-                            int[] notaMinMax = aula.notaMaxMinAlumno(alumno);
+                            int[] notaMinMax = aula.notaMaxMinAlumno(ref alumno);
                             Console.WriteLine("La nota más baja de {0} es : {1}", aula[alumno - 1], notaMinMax[0]);
                             Console.WriteLine("La nota más alta de {0} es : {1}", aula[alumno - 1], notaMinMax[1]);
                             Console.WriteLine();
@@ -108,7 +108,7 @@ namespace Ejercicio2
                             break;
 
                         case 7:
-                            Hashtable aprobados = aula.tablaAprobados();
+                            Hashtable aprobados = aula.tablaAprobados(); // TODO : Arreglar lo de esta función, que no se puede guardar una clave igual más de una vez en una Hashtable
                             List<String> nombres = new List<string>();
 
                             foreach (DictionaryEntry de in aprobados)
@@ -147,10 +147,16 @@ namespace Ejercicio2
                             {
                                 if (a == 0)
                                 {
-                                    Console.Write("\t\t");
+                                    Console.Write(String.Format("{0, 20}", aula[a]));
                                 }
-
-                                Console.Write(aula[a] + "\t");
+                                else if (a == 11)
+                                {
+                                    Console.Write(String.Format("{0, 12}", aula[a]));
+                                }
+                                else
+                                {
+                                    Console.Write(String.Format("{0, 8}", aula[a]));
+                                }
                             }
                             Console.WriteLine();
 
@@ -158,19 +164,20 @@ namespace Ejercicio2
                             for (int i = 0; i < aula.longitudDimensiónTabla(0); i++)
                             {
                                 asig = (Aula.asignaturas)i;
-                                if (i == 1 || i == 3)
-                                {
-                                    Console.Write("{0}\t\t", asig);
-                                }
-                                else
-                                {
-                                    Console.Write("{0}\t", asig);
-                                }
+                                Console.Write(String.Format("{0, -12}", asig));
 
                                 for (int j = 0; j < aula.longitudDimensiónTabla(1); j++)
                                 {
-                                    Console.Write("{0}\t", aula[i, j]);
+                                    if (j == 11)
+                                    {
+                                        Console.Write(String.Format("{0, 10}", aula[i, j]));
+                                    }
+                                    else
+                                    {
+                                        Console.Write(String.Format("{0, 8}", aula[i,j]));
+                                    }
                                 }
+
                                 Console.Write("\n");
                             }
 

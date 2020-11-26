@@ -237,7 +237,7 @@ namespace Ejercicio2
 
 
         // Función para mostrar la nota mínima y la nota máxima de un alumno
-        public int[] notaMaxMinAlumno(int numAlumno)
+        public int[] notaMaxMinAlumno(ref int numAlumno)
         {
             int[] notasAlumno = new int[4];
 
@@ -268,7 +268,7 @@ namespace Ejercicio2
 
 
         // Función para visualizar la tabla de los alumnos aprobados
-        public Hashtable tablaAprobados()
+        public Hashtable tablaAprobados() // TODO : Arreglar lo de esta función, que no se puede guardar una clave igual más de una vez en una Hashtable
         {
             // Creo una hashtable con los nombres y las notas aprobadas de los alumnos
             Hashtable aprobados = new Hashtable();
