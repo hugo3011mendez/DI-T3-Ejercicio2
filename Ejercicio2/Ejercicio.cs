@@ -48,7 +48,7 @@ namespace Ejercicio2
                         case 2:
                             Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la media : ");
                             alumno = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("La media de las notas de {0} es : {1:N2}", aula.alumnos[alumno-1], aula.calcularMediaAlumno(alumno));
+                            Console.WriteLine("La media de las notas de {0} es : {1:N2}", aula[alumno-1], aula.calcularMediaAlumno(alumno));
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
@@ -68,7 +68,7 @@ namespace Ejercicio2
                             alumno = Convert.ToInt32(Console.ReadLine());
                             int[] notasAlumno = aula.verNotasAlumno(alumno);
 
-                            Console.WriteLine("Las notas de {0} son : ", aula.alumnos[alumno - 1]);
+                            Console.WriteLine("Las notas de {0} son : ", aula[alumno - 1]);
                             for (int i = 0; i < notasAlumno.Length; i++)
                             {
                                 Console.Write("{0}\t", notasAlumno[i]);
@@ -87,7 +87,7 @@ namespace Ejercicio2
                             Console.WriteLine("Las notas son : ");
                             for (int i = 0; i < notasMateria.Length; i++)
                             {
-                                Console.Write("{0} :\t", aula.alumnos[i]);
+                                Console.Write("{0} :\t", aula[i]);
                                 Console.Write("{0}\n", notasMateria[i]);
                             }
                             Console.WriteLine();
@@ -99,8 +99,8 @@ namespace Ejercicio2
                             Console.WriteLine("Introduce el índice del alumno sobre el que quieres ver la nota más baja y la más alta : ");
                             alumno = Convert.ToInt32(Console.ReadLine());
                             int[] notaMinMax = aula.notaMaxMinAlumno(alumno);
-                            Console.WriteLine("La nota más baja de {0} es : {1}", aula.alumnos[alumno - 1], notaMinMax[0]);
-                            Console.WriteLine("La nota más alta de {0} es : {1}", aula.alumnos[alumno - 1], notaMinMax[1]);
+                            Console.WriteLine("La nota más baja de {0} es : {1}", aula[alumno - 1], notaMinMax[0]);
+                            Console.WriteLine("La nota más alta de {0} es : {1}", aula[alumno - 1], notaMinMax[1]);
                             Console.WriteLine();
                             Console.WriteLine("Pulsa Enter para continuar");
                             Console.ReadLine();
@@ -114,7 +114,7 @@ namespace Ejercicio2
                             {
                                 notasAlumno = aula.verNotasAlumno(aprobados[k]+1);
 
-                                Console.WriteLine("Las notas de {0} son : ", aula.alumnos[aprobados[k]]);
+                                Console.WriteLine("Las notas de {0} son : ", aula[aprobados[k]]);
                                 for (int i = 0; i < notasAlumno.Length; i++)
                                 {
                                     Console.Write("{0}\t", notasAlumno[i]);
@@ -127,38 +127,38 @@ namespace Ejercicio2
                             break;
 
                         case 8:
-                            aula.verTabla();
+                            //aula.verTabla();
 
-                            //for (int a = 0; a < 12; a++)
-                            //{
-                            //    if (a == 0)
-                            //    {
-                            //        Console.Write("\t\t");
-                            //    }
+                            for (int a = 0; a < 12; a++)
+                            {
+                                if (a == 0)
+                                {
+                                    Console.Write("\t\t");
+                                }
 
-                            //    Console.Write(aula.alumnos[a] + "\t");
-                            //}
-                            //Console.WriteLine();
+                                Console.Write(aula[a] + "\t");
+                            }
+                            Console.WriteLine();
 
-                            //Aula.asignaturas asig;
-                            //for (int i = 0; i < aula.tablaNotas.GetLength(0); i++)
-                            //{
-                            //    asig = (Aula.asignaturas)i;
-                            //    if (i == 1 || i == 3)
-                            //    {
-                            //        Console.Write("{0}\t\t", asig);
-                            //    }
-                            //    else
-                            //    {
-                            //        Console.Write("{0}\t", asig);
-                            //    }
+                            Aula.asignaturas asig;
+                            for (int i = 0; i < aula.tablaNotas.GetLength(0); i++)
+                            {
+                                asig = (Aula.asignaturas)i;
+                                if (i == 1 || i == 3)
+                                {
+                                    Console.Write("{0}\t\t", asig);
+                                }
+                                else
+                                {
+                                    Console.Write("{0}\t", asig);
+                                }
 
-                            //    for (int j = 0; j < aula.tablaNotas.GetLength(1); j++)
-                            //    {
-                            //        Console.Write("{0}\t", aula.tablaNotas[i, j]);
-                            //    }
-                            //    Console.Write("\n");
-                            //}
+                                for (int j = 0; j < aula.tablaNotas.GetLength(1); j++)
+                                {
+                                    Console.Write("{0}\t", aula.tablaNotas[i, j]);
+                                }
+                                Console.Write("\n");
+                            }
 
                             break;
 
